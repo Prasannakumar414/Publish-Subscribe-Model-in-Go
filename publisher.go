@@ -4,12 +4,13 @@ import (
 	"fmt"
 )
 
-func publisher(eventBus []string) {
+func publisher(eventBus *EventBus) {
 	fmt.Println("enter topic:")
 	topic := ""
 	fmt.Scanln(&topic)
 	fmt.Println("enter message:")
 	message := ""
 	fmt.Scanln(&message)
-	eventBus = append(eventBus, topic+"::"+message)
+	event := (topic + "::" + message)
+	eventBus.bus = event
 }
