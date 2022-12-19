@@ -2,12 +2,15 @@ package main
 
 import "fmt"
 
-func subcriber1(message string) {
-	fmt.Println("Subscriber 1 recieved -> " + message)
+type Subscriber struct {
+	name  string
+	topic string
 }
-func subcriber2(message string) {
-	fmt.Println("Subscriber 2 recieved -> " + message)
+
+func createSubscriber(name string, topic string) *Subscriber {
+	return &Subscriber{name: name, topic: topic}
 }
-func subcriber3(message string) {
-	fmt.Println("Subscriber 3 recieved -> " + message)
+func (s *Subscriber) show(message string) {
+	fmt.Println("Subscriber " + s.name + " recieved -> " + message)
+
 }

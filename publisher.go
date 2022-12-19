@@ -1,16 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
-
-func publisher(eventBus *EventBus) {
-	fmt.Println("enter topic:")
-	topic := ""
-	fmt.Scanln(&topic)
-	fmt.Println("enter message:")
-	message := ""
-	fmt.Scanln(&message)
+func publisher(eventBus *EventBus, topic string, message string) {
 	event := (topic + "::" + message)
 	eventBus.bus = event
+	EventHandler(eventBus)
 }
